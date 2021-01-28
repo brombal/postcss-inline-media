@@ -260,3 +260,5 @@ module.exports = (opts = {}) => {
     Once: inlineMedia
   };
 };
+
+module.exports.postcss = true;

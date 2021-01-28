@@ -183,8 +183,8 @@ class RulePack {
   }
 }
 
-module.exports = postcss.plugin('postcss-inline-media', (opts = {}) => {
-  return root => {
+module.exports = (opts = {}) => {
+  const inlineMedia = root => {
     const mediaQueries = [];
 
     root.walk(rule => {
@@ -254,4 +254,9 @@ module.exports = postcss.plugin('postcss-inline-media', (opts = {}) => {
       });
     });
   };
-});
+
+  return {
+    postcssPlugin: 'postcss-inline-media',
+    Once: inlineMedia
+  };
+};
